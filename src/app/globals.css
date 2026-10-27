@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+    --font-serif: var(--font-serif), Georgia, serif;
+    
+    --primary-amber: #D97706;
+    --primary-amber-dark: #B45309;
+    --primary-amber-light: #FDE68A;
+    --egg-cream: #FFFDF8;
+    --charcoal: #1E293B;
+    --charcoal-dark: #0F172A;
+    --whatsapp-green: #25D366;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAF8F2;
+  color: #1E293B;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom Soft Shadows */
+.shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(180, 83, 9, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-card {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 20px 40px -10px rgba(180, 83, 9, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 40px -10px rgba(217, 119, 6, 0.35);
+}
+
+/* Subtle egg pattern */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(217, 119, 6, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 119, 6, 0.04) 1px, transparent 1px);
+}
+
+/* Pulsing Badge Animation */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3s infinite ease-in-out;
+}
