@@ -142,9 +142,9 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8F3] text-slate-900 selection:bg-amber-600 selection:text-white">
-      {/* Top Contact Strip */}
-      <div className="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      {/* Top Contact Strip (Hidden on mobile to keep top clean with no cut-off strips) */}
+      <div className="hidden md:block bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-amber-500" />
             <span>Itarsi, Madhya Pradesh — Wholesale Egg Supplier</span>
@@ -157,7 +157,7 @@ export default function HomePage() {
               <Phone className="w-3 h-3 text-amber-500" />
               <span>+91 9993446325 (Kishor Daryani)</span>
             </a>
-            <span className="text-slate-700 hidden md:inline">|</span>
+            <span className="text-slate-700">|</span>
             <a
               href="tel:+917747986326"
               className="flex items-center gap-1.5 hover:text-amber-400 transition-colors"
@@ -171,23 +171,23 @@ export default function HomePage() {
 
       {/* Main Elegant Navbar */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
           {/* Logo / Brand */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-xl bg-amber-600 text-white flex items-center justify-center font-serif font-black text-xl shadow-sm group-hover:bg-amber-700 transition-colors">
+          <a href="#home" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-600 text-white flex items-center justify-center font-serif font-black text-lg sm:text-xl shadow-xs group-hover:bg-amber-700 transition-colors">
               MK
             </div>
             <div>
-              <span className="font-serif font-bold text-xl sm:text-2xl text-slate-900 tracking-tight block leading-none">
+              <span className="font-serif font-bold text-lg sm:text-2xl text-slate-900 tracking-tight block leading-tight">
                 MK Egg Centre
               </span>
-              <span className="text-xs text-slate-500 font-medium tracking-normal mt-1 block">
+              <span className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-normal block">
                 Wholesale Egg Supplier • Itarsi
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav Links - Exact Order Requested by User */}
+          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-7">
             <a href="#home" className="text-sm font-semibold text-slate-700 hover:text-amber-600 transition-colors">
               Home
@@ -229,77 +229,77 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100"
+            className="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu - Exact Order */}
+        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-stone-200 px-6 py-5 space-y-4 shadow-xl">
+          <div className="lg:hidden bg-white border-b border-stone-200 px-6 py-5 space-y-4 shadow-xl animate-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col space-y-3 font-semibold text-slate-800 text-sm">
               <a
                 href="#home"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 border-b border-slate-100 hover:text-amber-600"
+                className="py-2 border-b border-slate-100 hover:text-amber-600"
               >
                 Home
               </a>
               <a
                 href="#products"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 border-b border-slate-100 hover:text-amber-600"
+                className="py-2 border-b border-slate-100 hover:text-amber-600"
               >
                 Our Products
               </a>
               <a
                 href="#why"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 border-b border-slate-100 hover:text-amber-600"
+                className="py-2 border-b border-slate-100 hover:text-amber-600"
               >
                 Wholesale Supply
               </a>
               <a
                 href="#gallery"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 border-b border-slate-100 hover:text-amber-600"
+                className="py-2 border-b border-slate-100 hover:text-amber-600"
               >
                 Gallery
               </a>
               <a
                 href="#about"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 border-b border-slate-100 hover:text-amber-600"
+                className="py-2 border-b border-slate-100 hover:text-amber-600"
               >
                 About Us
               </a>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-amber-600"
+                className="py-2 hover:text-amber-600"
               >
                 Contact Us
               </a>
             </div>
 
-            <div className="pt-2 flex flex-col gap-2">
+            <div className="pt-2 flex flex-col gap-2.5">
               <a
                 href="https://wa.me/919993446325?text=Hi%2C%20I%20checked%20out%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20wholesale%20egg%20supply."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3 bg-emerald-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2 text-sm"
+                className="w-full text-center py-3 bg-emerald-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2 text-sm shadow-xs"
               >
                 <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
                 <span>Chat on WhatsApp</span>
               </a>
               <a
                 href="tel:+919993446325"
-                className="w-full text-center py-3 bg-slate-900 text-white rounded-xl font-semibold flex items-center justify-center gap-2 text-sm"
+                className="w-full text-center py-3 bg-slate-900 text-white rounded-xl font-semibold flex items-center justify-center gap-2 text-sm shadow-xs"
               >
                 <Phone className="w-4 h-4" />
                 <span>Call +91 9993446325</span>
@@ -310,35 +310,35 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">
-        {/* 1. HERO SECTION - REFINED WHOLESALE VALUE PROPOSITION */}
-        <section id="home" className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+        {/* 1. HERO SECTION - FULLY RESPONSIVE */}
+        <section id="home" className="relative pt-6 pb-12 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Column Text */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 border border-amber-300/80 text-amber-900 text-xs sm:text-sm font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-amber-700" />
+              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 text-xs sm:text-sm font-medium">
+                  <MapPin className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                   <span>Itarsi, Madhya Pradesh</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+                <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.2]">
                   Wholesale Egg Supply{" "}
                   <span className="text-amber-700">
                     You Can Rely On.
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
                   Your trusted wholesale egg supplier in Itarsi, Madhya Pradesh. MK Egg Centre supplies eggs in bulk with a focus on quality, reliable service and long-term business relationships.
                 </p>
 
-                {/* CTAs */}
-                <div className="pt-2 flex flex-wrap gap-4 items-center">
+                {/* CTAs - Full width on mobile, auto on desktop */}
+                <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
                   <a
                     href="https://wa.me/919993446325?text=Hi%2C%20I%20checked%20out%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20wholesale%20egg%20supply."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm sm:text-base shadow-sm transition-all"
+                    className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-sm sm:text-base shadow-sm transition-all"
                   >
                     <WhatsAppIcon className="w-5 h-5" fill="#ffffff" />
                     <span>Enquire on WhatsApp</span>
@@ -346,7 +346,7 @@ export default function HomePage() {
 
                   <a
                     href="tel:+919993446325"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm sm:text-base shadow-sm transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white font-semibold text-sm sm:text-base shadow-sm transition-all"
                   >
                     <Phone className="w-4 h-4 text-amber-400" />
                     <span>Call Us Now</span>
@@ -354,17 +354,17 @@ export default function HomePage() {
                 </div>
 
                 {/* Simple Highlights */}
-                <div className="pt-4 flex flex-wrap gap-3 text-xs font-semibold text-slate-700">
+                <div className="pt-2 sm:pt-4 flex flex-wrap gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
                   <span className="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     Wholesale-Focused Supply
                   </span>
                   <span className="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     Delivery Vehicle Service
                   </span>
                   <span className="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     Bulk Order Enquiries Welcome
                   </span>
                 </div>
@@ -373,21 +373,22 @@ export default function HomePage() {
               {/* Right Column Hero Card */}
               <div className="lg:col-span-5">
                 <div className="rounded-2xl overflow-hidden bg-white shadow-md border border-slate-200">
-                  <div className="relative h-72 sm:h-96 w-full">
+                  <div className="relative h-64 sm:h-80 md:h-96 w-full">
                     <Image
                       src="/images/hero-eggs.jpg"
                       alt="MK Egg Centre Wholesale White Eggs"
                       fill
                       className="object-cover"
                       priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <p className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                      <p className="text-[11px] sm:text-xs font-semibold text-amber-300 uppercase tracking-wider">
                         Serving Businesses in and Around Itarsi
                       </p>
-                      <h3 className="font-serif text-lg font-bold text-white mt-0.5">
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-white mt-0.5">
                         MK Egg Centre
                       </h3>
                     </div>
@@ -399,48 +400,49 @@ export default function HomePage() {
         </section>
 
         {/* 2. OUR PRODUCTS SECTION */}
-        <section id="products" className="py-16 md:py-20 bg-white border-y border-stone-200/80">
+        <section id="products" className="py-14 sm:py-16 md:py-20 bg-white border-y border-stone-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1.5">
                 Our Products
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 Wholesale Eggs for Your Business
               </h2>
-              <p className="text-base text-slate-600 mt-2 leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
                 We supply eggs in bulk for businesses looking for a dependable wholesale supplier in Itarsi and nearby areas. Get in touch to discuss your quantity requirements and supply arrangements.
               </p>
             </div>
 
             {/* 3 Product Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {/* Product 1 */}
               <div className="rounded-2xl bg-[#FAF8F3] border border-stone-200 overflow-hidden shadow-xs flex flex-col justify-between">
                 <div>
-                  <div className="relative h-56 w-full">
+                  <div className="relative h-48 sm:h-56 w-full">
                     <Image
                       src="/images/egg-trays.jpg"
                       alt="Bulk Egg Supply - MK Egg Centre"
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="font-serif text-xl font-bold text-slate-900">
+                  <div className="p-5 sm:p-6 space-y-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
                       Bulk Egg Supply
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       Eggs supplied in trays and bulk quantities for regular business needs.
                     </p>
                   </div>
                 </div>
-                <div className="p-6 pt-0">
+                <div className="p-5 sm:p-6 pt-0">
                   <a
                     href="https://wa.me/919993446325?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20Bulk%20Egg%20Supply%20in%20trays."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-sm transition-colors bg-white"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-xs sm:text-sm transition-colors bg-white active:bg-amber-50"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-emerald-600" fill="#059669" />
                     <span>Enquire Now</span>
@@ -452,29 +454,30 @@ export default function HomePage() {
               {/* Product 2 */}
               <div className="rounded-2xl bg-[#FAF8F3] border border-stone-200 overflow-hidden shadow-xs flex flex-col justify-between">
                 <div>
-                  <div className="relative h-56 w-full">
+                  <div className="relative h-48 sm:h-56 w-full">
                     <Image
                       src="/images/egg-stock.jpg"
                       alt="Wholesale Orders - MK Egg Centre"
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="font-serif text-xl font-bold text-slate-900">
+                  <div className="p-5 sm:p-6 space-y-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
                       Wholesale Orders
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       Share your quantity requirements and we&apos;ll discuss current rates and availability.
                     </p>
                   </div>
                 </div>
-                <div className="p-6 pt-0">
+                <div className="p-5 sm:p-6 pt-0">
                   <a
                     href="https://wa.me/919993446325?text=Hi%2C%20I%20would%20like%20to%20know%20today%27s%20Wholesale%20Egg%20Rates%20and%20availability."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-sm transition-colors bg-white"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-xs sm:text-sm transition-colors bg-white active:bg-amber-50"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-emerald-600" fill="#059669" />
                     <span>Enquire Now</span>
@@ -486,29 +489,30 @@ export default function HomePage() {
               {/* Product 3 */}
               <div className="rounded-2xl bg-[#FAF8F3] border border-stone-200 overflow-hidden shadow-xs flex flex-col justify-between">
                 <div>
-                  <div className="relative h-56 w-full">
+                  <div className="relative h-48 sm:h-56 w-full">
                     <Image
                       src="/images/egg-delivery.jpg"
                       alt="Vehicle-Based Egg Supply - MK Egg Centre"
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
-                  <div className="p-6 space-y-2">
-                    <h3 className="font-serif text-xl font-bold text-slate-900">
+                  <div className="p-5 sm:p-6 space-y-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
                       Vehicle-Based Egg Supply
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       Egg supplies arranged through our delivery vehicles for added convenience.
                     </p>
                   </div>
                 </div>
-                <div className="p-6 pt-0">
+                <div className="p-5 sm:p-6 pt-0">
                   <a
                     href="https://wa.me/919993446325?text=Hi%2C%20I%20would%20like%20to%20arrange%20Vehicle-Based%20Egg%20Supply%20to%20my%20business."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-sm transition-colors bg-white"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 hover:border-amber-600 hover:text-amber-700 text-slate-800 font-semibold text-xs sm:text-sm transition-colors bg-white active:bg-amber-50"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-emerald-600" fill="#059669" />
                     <span>Enquire Now</span>
@@ -519,45 +523,45 @@ export default function HomePage() {
             </div>
 
             {/* Note banner */}
-            <div className="mt-8 p-4 rounded-xl bg-amber-50 border border-amber-200 text-center text-sm text-slate-800 font-medium">
+            <div className="mt-8 p-3.5 sm:p-4 rounded-xl bg-amber-50 border border-amber-200 text-center text-xs sm:text-sm text-slate-800 font-medium">
               Please contact us for current rates, available quantities and order details.
             </div>
 
-            {/* BUSINESS CATEGORIES - Clean Showcase, No Numbers */}
-            <div className="mt-14 p-8 rounded-2xl bg-[#FAF8F3] border border-stone-200 shadow-xs">
-              <div className="text-center max-w-2xl mx-auto mb-8">
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
+            {/* BUSINESS CATEGORIES - Clean Responsive Showcase */}
+            <div className="mt-10 sm:mt-14 p-6 sm:p-8 rounded-2xl bg-[#FAF8F3] border border-stone-200 shadow-xs">
+              <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
                   Wholesale Supply Across Commercial Categories
                 </h3>
-                <p className="text-sm text-slate-600 mt-1">
+                <p className="text-xs sm:text-sm text-slate-600 mt-1">
                   We supply wholesale eggs to various commercial businesses in and around Itarsi.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <Cake className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Bakeries & Confectioneries</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <Cake className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Bakeries & Confectioneries</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <UtensilsCrossed className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Restaurants & Dhabas</p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <UtensilsCrossed className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Restaurants & Dhabas</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <Building2 className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Hotels & Lodges</p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Hotels & Lodges</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <ShoppingBag className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Retail Grocery Stores</p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Retail Grocery Stores</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <Store className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Food Stalls & Canteens</p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <Store className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Food Stalls & Canteens</p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-2">
-                  <Package className="w-6 h-6 text-amber-700 mx-auto" />
-                  <p className="text-xs font-semibold text-slate-800">Wholesale Traders</p>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-stone-200/80 text-center space-y-1.5">
+                  <Package className="w-5 h-5 sm:w-6 sm:h-6 text-amber-700 mx-auto" />
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-800">Wholesale Traders</p>
                 </div>
               </div>
 
@@ -566,7 +570,7 @@ export default function HomePage() {
                   href="https://wa.me/919993446325?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20wholesale%20egg%20supply%20for%20my%20business."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-700 hover:text-emerald-800"
                 >
                   <WhatsAppIcon className="w-4 h-4" fill="#047857" />
                   <span>Enquire for Your Business Category on WhatsApp →</span>
@@ -577,74 +581,74 @@ export default function HomePage() {
         </section>
 
         {/* 3. WHOLESALE SUPPLY SECTION (WHY CHOOSE US) */}
-        <section id="why" className="py-16 md:py-20 bg-[#FAF8F3]">
+        <section id="why" className="py-14 sm:py-16 md:py-20 bg-[#FAF8F3]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1.5">
                 Wholesale Supply
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 Why Choose MK Egg Centre?
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {/* Point 1 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Around 35 Years of Family Business Experience
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Decades of reliable family business experience in wholesale egg supply.
                 </p>
               </div>
 
               {/* Point 2 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Wholesale-Focused Egg Supply
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Tailored to meet the demands and schedules of commercial buyers and food businesses.
                 </p>
               </div>
 
               {/* Point 3 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Family-Owned Business
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Run by Amar Daryani, Kishor Daryani, and Mohan Daryani with personal care and accountability.
                 </p>
               </div>
 
               {/* Point 4 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Bulk Order Enquiries Welcome
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Equipped to fulfill regular and bulk quantity requirements with dependability.
                 </p>
               </div>
 
               {/* Point 5 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Supply Through Delivery Vehicles
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Convenient delivery arrangements through our dedicated supply vehicles.
                 </p>
               </div>
 
               {/* Point 6 */}
-              <div className="p-6 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                <h3 className="font-serif text-lg font-bold text-slate-900">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200 space-y-1.5 shadow-2xs">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900">
                   Personal Contact for Business Enquiries
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Direct phone and WhatsApp access for quick communication and orders.
                 </p>
               </div>
@@ -653,40 +657,41 @@ export default function HomePage() {
         </section>
 
         {/* 4. GALLERY SECTION */}
-        <section id="gallery" className="py-16 md:py-20 bg-white border-y border-stone-200/80">
+        <section id="gallery" className="py-14 sm:py-16 md:py-20 bg-white border-y border-stone-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1.5">
                 Gallery
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 A Look at Our Business
               </h2>
-              <p className="text-sm text-slate-600 mt-2">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1.5">
                 Wholesale egg trays, delivery vehicles and store facilities at MK Egg Centre, Itarsi.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {galleryImages.map((item) => (
                 <div
                   key={item.id}
                   onClick={() => setSelectedGalleryImage(item)}
-                  className="group rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-2xs hover:shadow-md transition-all cursor-pointer"
+                  className="group rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-2xs hover:shadow-md transition-all cursor-pointer active:scale-[0.99]"
                 >
-                  <div className="relative h-64 w-full overflow-hidden bg-stone-100">
+                  <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-stone-100">
                     <Image
                       src={item.src}
                       alt={item.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-900 shadow-2xs">
+                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-semibold text-slate-900 shadow-2xs">
                       {item.tagLabel}
                     </div>
                     <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <h4 className="font-serif font-bold text-sm sm:text-base">
+                      <h4 className="font-serif font-bold text-sm sm:text-base leading-snug">
                         {item.title}
                       </h4>
                     </div>
@@ -695,25 +700,25 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Lightbox Modal */}
+            {/* Lightbox Modal - Fully Responsive for Mobile */}
             {selectedGalleryImage && (
               <div
-                className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4"
+                className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4"
                 onClick={() => setSelectedGalleryImage(null)}
               >
                 <div
-                  className="relative max-w-3xl w-full bg-slate-900 rounded-2xl overflow-hidden text-white"
+                  className="relative max-w-3xl w-full bg-slate-900 rounded-2xl overflow-hidden text-white shadow-2xl max-h-[92vh] flex flex-col"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
                     onClick={() => setSelectedGalleryImage(null)}
-                    className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/90 transition-colors"
+                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/70 text-white flex items-center justify-center hover:bg-black transition-colors"
                     aria-label="Close"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-5 h-5" />
                   </button>
 
-                  <div className="relative h-[360px] sm:h-[460px] w-full bg-black">
+                  <div className="relative h-64 sm:h-96 md:h-[460px] w-full bg-black flex-1">
                     <Image
                       src={selectedGalleryImage.src}
                       alt={selectedGalleryImage.title}
@@ -722,9 +727,9 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="p-4 sm:p-5 bg-slate-900 flex justify-between items-center gap-4">
+                  <div className="p-4 sm:p-5 bg-slate-900 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                     <div>
-                      <h3 className="font-serif text-lg font-bold text-white">
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-white">
                         {selectedGalleryImage.title}
                       </h3>
                       <p className="text-xs text-slate-300 mt-0.5">
@@ -735,10 +740,10 @@ export default function HomePage() {
                       href="https://wa.me/919993446325?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20your%20wholesale%20egg%20supply."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shrink-0 flex items-center gap-1.5"
+                      className="w-full sm:w-auto text-center px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shrink-0 flex items-center justify-center gap-1.5"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5" fill="#ffffff" />
-                      <span>Enquire</span>
+                      <span>Enquire on WhatsApp</span>
                     </a>
                   </div>
                 </div>
@@ -747,20 +752,20 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. ABOUT US SECTION - NO BLACK SECTION, CLEAN PHOTO */}
-        <section id="about" className="py-16 md:py-20 bg-[#FAF8F3]">
+        {/* 5. ABOUT US SECTION */}
+        <section id="about" className="py-14 sm:py-16 md:py-20 bg-[#FAF8F3]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1.5">
                 Our Family Story
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 A Family Business Built on Trust
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Photo Showcase - Completely Cropped (No Black Bars) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              {/* Photo Showcase - Clean with NO black bars */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="rounded-2xl overflow-hidden bg-white border border-stone-200 shadow-md max-w-sm w-full">
                   <div className="relative w-full aspect-[472/545] bg-stone-50">
@@ -769,21 +774,22 @@ export default function HomePage() {
                       alt="Amar Daryani, Kishor Daryani and Mohan Daryani - MK Egg Centre"
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 400px"
                     />
                   </div>
-                  <div className="p-4 bg-white border-t border-stone-100 text-center">
-                    <h4 className="font-serif font-bold text-base sm:text-lg text-slate-900">
+                  <div className="p-3.5 sm:p-4 bg-white border-t border-stone-100 text-center">
+                    <h4 className="font-serif font-bold text-sm sm:text-base text-slate-900">
                       Amar Daryani, Kishor Daryani & Mohan Daryani
                     </h4>
-                    <p className="text-xs text-slate-500 mt-0.5">
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
                       MK Egg Centre, Itarsi
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Clean, Simple Story */}
-              <div className="lg:col-span-7 space-y-5 text-slate-700 text-base leading-relaxed">
+              {/* Story Content */}
+              <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-slate-700 text-sm sm:text-base leading-relaxed">
                 <p>
                   MK Egg Centre is a family-owned wholesale egg supply business started by three brothers from the Daryani family —{" "}
                   <strong className="text-slate-900 font-semibold">
@@ -799,43 +805,44 @@ export default function HomePage() {
                   From supplying eggs in bulk to arranging egg supplies through our delivery vehicles, we focus on making egg procurement convenient for the businesses we serve.
                 </p>
 
-                <p className="italic text-slate-800 font-medium border-l-2 border-amber-600 pl-4 py-1">
+                <p className="italic text-slate-800 font-medium border-l-2 border-amber-600 pl-3.5 py-1">
                   For us, this business is more than supplying eggs. It is about trust, consistency and carrying forward a family legacy.
                 </p>
 
-                {/* Simple 3 Bullet Points */}
-                <div className="pt-4 space-y-3 border-t border-stone-200">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">
+                {/* 3 Bullet Points */}
+                <div className="pt-3 sm:pt-4 space-y-2.5 border-t border-stone-200">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-700">
                       <strong>Around 35 Years Experience:</strong> Built over decades with reliable wholesale supply in Itarsi.
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-700">
                       <strong>Personal Contact:</strong> Direct business dealing with Kishor Daryani and family.
                     </span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">
+                  <div className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-slate-700">
                       <strong>Delivery Vehicle Support:</strong> Bulk supplies delivered safely to your location.
                     </span>
                   </div>
                 </div>
 
-                <div className="pt-4 flex flex-wrap gap-3">
+                {/* Call buttons on mobile */}
+                <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                   <a
                     href="tel:+919993446325"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 active:bg-slate-950 transition-colors"
                   >
                     <Phone className="w-4 h-4 text-amber-400" />
                     <span>Call Kishor Daryani (+91 9993446325)</span>
                   </a>
                   <a
                     href="tel:+917747986326"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-sm hover:border-amber-600 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-xs sm:text-sm hover:border-amber-600 transition-colors active:bg-amber-50"
                   >
                     <Phone className="w-4 h-4 text-amber-600" />
                     <span>Call Rohit Daryani (+91 7747986326)</span>
@@ -847,23 +854,23 @@ export default function HomePage() {
         </section>
 
         {/* 6. CONTACT US SECTION */}
-        <section id="contact" className="py-16 md:py-20 bg-white border-t border-stone-200/80">
+        <section id="contact" className="py-14 sm:py-16 md:py-20 bg-white border-t border-stone-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
+            <div className="max-w-3xl mb-10 sm:mb-12">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-1.5">
                 Contact Us
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 Let&apos;s Talk About Your Egg Supply Requirements
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
               {/* Left Column: Direct Info */}
-              <div className="lg:col-span-5 space-y-6">
-                <div className="p-6 sm:p-8 rounded-2xl bg-[#FAF8F3] border border-stone-200 space-y-5">
+              <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+                <div className="p-5 sm:p-8 rounded-2xl bg-[#FAF8F3] border border-stone-200 space-y-5">
                   <div className="space-y-1">
-                    <h3 className="font-serif text-xl font-bold text-slate-900">MK Egg Centre</h3>
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">MK Egg Centre</h3>
                     <p className="text-xs text-slate-500">
                       Wholesale egg supplier in Itarsi, MP
                     </p>
@@ -871,13 +878,13 @@ export default function HomePage() {
 
                   {/* Address */}
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0 mt-0.5" />
                     <div>
                       <a
                         href="https://www.google.com/maps/search/?api=1&query=MK%20Egg%20Centre%2C%20Pudi%20Line%2C%20Near%20Station%20Road%2C%20Dolaria%20Road%2C%20Itarsi%20%E2%80%93%20461111%2C%20Madhya%20Pradesh%2C%20India"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-slate-800 hover:text-amber-700 leading-snug block"
+                        className="text-xs sm:text-sm font-semibold text-slate-800 hover:text-amber-700 leading-snug block"
                       >
                         Pudi Line, Near Station Road, Dolaria Road, Itarsi – 461111, Madhya Pradesh, India
                       </a>
@@ -885,7 +892,7 @@ export default function HomePage() {
                         href="https://www.google.com/maps/search/?api=1&query=MK%20Egg%20Centre%2C%20Pudi%20Line%2C%20Near%20Station%20Road%2C%20Dolaria%20Road%2C%20Itarsi%20%E2%80%93%20461111%2C%20Madhya%20Pradesh%2C%20India"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 hover:underline mt-1"
+                        className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-amber-700 hover:underline mt-1"
                       >
                         <span>Open address in Google Maps</span>
                         <ExternalLink className="w-3 h-3" />
@@ -895,36 +902,36 @@ export default function HomePage() {
 
                   {/* Phone Numbers */}
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-                    <div className="space-y-1 text-sm">
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0 mt-0.5" />
+                    <div className="space-y-1 text-xs sm:text-sm">
                       <a
                         href="tel:+919993446325"
                         className="font-semibold text-slate-800 hover:text-amber-700 block"
                       >
-                        +91 9993446325 <span className="text-xs text-slate-500 font-normal">(Kishor Daryani)</span>
+                        +91 9993446325 <span className="text-slate-500 font-normal">(Kishor Daryani)</span>
                       </a>
                       <a
                         href="tel:+917747986326"
                         className="font-semibold text-slate-800 hover:text-amber-700 block"
                       >
-                        +91 7747986326 <span className="text-xs text-slate-500 font-normal">(Rohit Daryani)</span>
+                        +91 7747986326 <span className="text-slate-500 font-normal">(Rohit Daryani)</span>
                       </a>
                     </div>
                   </div>
 
                   {/* WhatsApp */}
                   <div className="flex items-start gap-3">
-                    <WhatsAppIcon className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="#059669" />
+                    <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0 mt-0.5" fill="#059669" />
                     <div>
                       <a
                         href="https://wa.me/919993446325?text=Hi%2C%20I%20checked%20out%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20wholesale%20egg%20supply."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-emerald-700 hover:underline block"
+                        className="text-xs sm:text-sm font-semibold text-emerald-700 hover:underline block"
                       >
                         WhatsApp Enquiry (+91 9993446325)
                       </a>
-                      <p className="text-xs text-slate-500 mt-0.5">
+                      <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
                         Your enquiry opens in WhatsApp, ready to send to us.
                       </p>
                     </div>
@@ -934,13 +941,13 @@ export default function HomePage() {
 
               {/* Right Column: Enquiry Form */}
               <div className="lg:col-span-7">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-xs space-y-5">
-                  <h3 className="font-serif text-xl font-bold text-slate-900">
+                <div className="bg-white rounded-2xl p-5 sm:p-8 border border-stone-200 shadow-xs space-y-5">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900">
                     Send an Enquiry
                   </h3>
 
                   <form onSubmit={handleFormSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-slate-700 mb-1">
                           Name <span className="text-rose-500">*</span>
@@ -949,7 +956,7 @@ export default function HomePage() {
                           type="text"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className={`w-full p-3 rounded-xl border bg-stone-50 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
+                          className={`w-full p-3 rounded-xl border bg-stone-50 text-base sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
                             formErrors.name
                               ? "border-rose-400 focus:ring-rose-200"
                               : "border-slate-200 focus:border-amber-500 focus:ring-amber-200"
@@ -968,12 +975,12 @@ export default function HomePage() {
                           type="text"
                           value={formData.business}
                           onChange={(e) => setFormData({ ...formData, business: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
+                          className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-base sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
                         <label className="block text-xs font-semibold text-slate-700 mb-1">
                           Phone Number <span className="text-rose-500">*</span>
@@ -982,7 +989,7 @@ export default function HomePage() {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className={`w-full p-3 rounded-xl border bg-stone-50 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
+                          className={`w-full p-3 rounded-xl border bg-stone-50 text-base sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
                             formErrors.phone
                               ? "border-rose-400 focus:ring-rose-200"
                               : "border-slate-200 focus:border-amber-500 focus:ring-amber-200"
@@ -1001,7 +1008,7 @@ export default function HomePage() {
                           type="text"
                           value={formData.quantity}
                           onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                          className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
+                          className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-base sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
                         />
                       </div>
                     </div>
@@ -1014,13 +1021,13 @@ export default function HomePage() {
                         rows={3}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
+                        className="w-full p-3 rounded-xl border border-slate-200 bg-stone-50 text-base sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-xs flex items-center justify-center gap-2.5 transition-colors"
+                      className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-sm sm:text-base shadow-xs flex items-center justify-center gap-2 transition-colors"
                     >
                       <WhatsAppIcon className="w-5 h-5" fill="#ffffff" />
                       <span>Send Enquiry on WhatsApp</span>
@@ -1033,8 +1040,8 @@ export default function HomePage() {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="bg-slate-950 text-slate-400 text-sm pt-12 pb-10 border-t border-slate-900">
+      {/* FOOTER - Extra bottom padding for mobile sticky bar */}
+      <footer className="bg-slate-950 text-slate-400 text-sm pt-12 pb-24 sm:pb-10 border-t border-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
             {/* Brand */}
@@ -1087,10 +1094,10 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* FLOATING WHATSAPP BUTTON WITH AUTHENTIC ICON */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* FLOATING WHATSAPP BUTTON (DESKTOP/TABLET ONLY - NEVER OVERLAPS MOBILE BAR) */}
+      <div className="hidden sm:flex fixed bottom-6 right-6 z-50 flex-col items-end">
         {showChatPopup && (
-          <div className="mb-2 max-w-xs bg-white text-slate-900 rounded-xl p-3 shadow-lg border border-stone-200 relative">
+          <div className="mb-2 max-w-xs bg-white text-slate-900 rounded-xl p-3 shadow-lg border border-stone-200 relative animate-in fade-in duration-300">
             <button
               onClick={() => setShowChatPopup(false)}
               className="absolute top-2 right-2 text-slate-400 hover:text-slate-600 p-0.5"
@@ -1109,27 +1116,27 @@ export default function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg transition-all"
+          className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
         >
           <WhatsAppIcon className="w-5 h-5" fill="#ffffff" />
-          <span className="text-xs font-semibold pr-1 hidden sm:inline">WhatsApp Enquiry</span>
+          <span className="text-xs font-semibold pr-1">WhatsApp Enquiry</span>
         </a>
       </div>
 
-      {/* MOBILE STICKY CALL/WHATSAPP BAR */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 p-2 grid grid-cols-2 gap-2 shadow-lg">
+      {/* MOBILE STICKY BOTTOM BAR (iOS & ANDROID OPTIMIZED WITH SAFE AREA) */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200/90 px-3.5 pt-2.5 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] grid grid-cols-2 gap-2.5 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
         <a
           href="tel:+919993446325"
-          className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-slate-900 text-white text-xs font-semibold"
+          className="h-12 flex items-center justify-center gap-2 px-3 rounded-xl bg-slate-900 text-white text-xs font-semibold active:bg-slate-950 transition-colors shadow-xs"
         >
-          <Phone className="w-3.5 h-3.5 text-amber-400" />
+          <Phone className="w-4 h-4 text-amber-400 shrink-0" />
           <span>Call Now</span>
         </a>
         <a
           href="https://wa.me/919993446325?text=Hi%2C%20I%20checked%20out%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20wholesale%20egg%20supply."
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg bg-emerald-600 text-white text-xs font-semibold"
+          className="h-12 flex items-center justify-center gap-2 px-3 rounded-xl bg-emerald-600 text-white text-xs font-semibold active:bg-emerald-700 transition-colors shadow-xs"
         >
           <WhatsAppIcon className="w-4 h-4" fill="#ffffff" />
           <span>WhatsApp</span>

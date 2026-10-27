@@ -24,13 +24,23 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sansFont.variable} ${serifFont.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
-      <body className="font-sans bg-[#FBF9F5] text-slate-900 antialiased selection:bg-amber-600 selection:text-white">
+      <body className="font-sans bg-[#FAF8F3] text-slate-900 antialiased selection:bg-amber-600 selection:text-white pb-20 sm:pb-0 overflow-x-hidden">
         {children}
       </body>
     </html>
